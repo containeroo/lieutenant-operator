@@ -200,8 +200,8 @@ func Test_ClusterUpgradingMetric_InvalidMetricNoFailSkip_LabelError(t *testing.T
 			Status: synv1alpha1.ClusterStatus{
 				CompileMeta: synv1alpha1.CompileMeta{
 					CommodoreBuildInfo: map[string]string{
-						"version":             "1.0.0",
-						"_invalid-label-2345": "abc123",
+						"version": "1.0.0",
+						"":        "invalid-label",
 					},
 				},
 			},
