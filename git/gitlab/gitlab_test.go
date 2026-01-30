@@ -635,6 +635,15 @@ func TestGitlab_FullURL(t *testing.T) {
 	assert.Equal(t, expectedFullURL, g.FullURL().String())
 	assert.Equal(t, expectedFullURL, g.FullURL().String())
 	assert.Equal(t, expectedFullURL, g.FullURL().String())
+
+	sshHostExpected := "ssh://git@ssh.example.com/foo/bar.git"
+	g = &Gitlab{
+		ops: manager.RepoOptions{
+			URL:     serverURL,
+			SSHHost: "ssh.example.com",
+		},
+	}
+	assert.Equal(t, sshHostExpected, g.FullURL().String())
 }
 
 type mockClock struct {
